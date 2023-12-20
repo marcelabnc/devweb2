@@ -1,0 +1,257 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+:root {
+  --primary-color: #003b3f;
+  --secundary-color: #343434;
+  --background-color: #ecf0f1; 
+  --box-shadow-color: rgba(0, 0, 0, 0.2); 
+}
+
+* {
+  font-family: 'Arial', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  /* background-color: var(--background-color); */
+  background: url("res/bkg-02.jpg") no-repeat center top fixed;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  color: var(--background-color);
+  text-shadow: 4px 4px rgba(22, 22, 22, 0.5);
+  margin-bottom: 2rem;
+}
+
+.pending {
+  &::before {
+    font-family: "Material Symbols Outlined";
+    content: "autorenew";
+    color: #f1c40f;
+    animation: spin 2s linear infinite;
+  }
+}
+
+.synced {
+  &::before {
+    font-family: "Material Symbols Outlined";
+    content: "check_circle";
+    color: #2ecc71;
+  }
+}
+
+.error {
+  &::before {
+    font-family: "Material Symbols Outlined";
+    content: "error";
+    color: #e74c3c;
+  }
+}
+
+.container {
+  display: flex;
+  height: 40px;
+  margin-bottom: 2.5rem;
+  background-color: rgba(240, 240, 240, 0.8);
+  background-color: rgba(34, 34, 34, 0.7);
+  border-radius: 8px;
+}
+
+.material-symbols-outlined {
+  position: absolute;
+  padding: 10px 10px 10px 10px;
+  font-size: 20px;
+  color: rgba(118, 122, 129);
+  color: #ccc;
+}
+
+.input-action {
+  background-color: transparent;
+  color: #ecf0f1;
+  width: 100%;
+  border: 0px solid rgba(0 0 0 / .5);
+  border-radius: 8px;
+  font-size: 1rem;
+  padding: .2rem 1rem;
+  padding-inline-start: 40px;
+
+  &:hover {
+    background-color: rgba(22, 22, 22, 0.4);
+    color: #ecf0f1;
+  }
+}
+
+::placeholder {
+  color: #ccc;
+}
+
+.container-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+}
+
+.data-in {
+  flex-grow: 1;
+  color: #ccc;
+  padding: 0;
+  margin-left: 32px;
+  text-align: left;
+}
+
+
+ul,
+li {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+li {
+  display: flex;
+  gap: .5rem;
+  margin-bottom: .5rem;
+  background-color: rgba(34, 34, 34, 0.7);
+  padding: .5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 5px var(--box-shadow-color);
+  justify-content: space-between;
+  align-items: center;
+  
+  & input {
+    flex-grow: 1;
+    padding: 8px;
+    color: #ccc;
+    font-weight: bold;
+    border: 0px solid #ccc;
+    border-radius: 3px;
+    
+    &:hover {
+      background-color: rgba(22, 22, 22, 0.4);
+    }
+  }
+}
+
+li > * {
+  font-size: 1rem;
+  padding: .2rem 1rem;
+  background-color: transparent;
+  border-radius: 2px;
+  border: 1px solid rgba(0 0 0 / .5);
+  position: relative;
+  overflow: hidden;
+}
+
+li > span {
+  border: none;
+  font-size: small;
+  font-style: italic;
+  color: #ccc;
+}
+
+li button {
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    background-color: rgba(0 0 0 / .05);
+    transition: .3s ease-in-out;
+    transform: translateY(100%);
+  }
+  
+  &:hover {
+    background-color: rgb(247, 162, 63);
+    color: rgb(12, 12, 12);
+    
+    &::before {
+      transform: translateY(0);
+    }
+  }
+}
+
+.strikethrough {
+    text-decoration: line-through;
+    color: #161616;
+}
+
+.switch {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+}
+
+.switch .switch-wrapper {
+  display: inline-block;
+  width: 30px;
+  height: 18px;
+  position: relative;
+}
+
+.switch .switch-wrapper input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch .switch-wrapper .switch-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  background-color: rgba(0 0 0 / .7);
+
+  &::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    left: 4px;
+    bottom: 3px;
+    background-color: #ccc;
+    border-radius: 50%;
+    transition: .5s all ease;
+  }
+}
+
+.switch .switch-wrapper input:checked + .switch-btn {
+  background-color: rgba(0, 0, 0, 0.4);
+
+  &::before {
+    transform: translateX(10px);
+  }
+}

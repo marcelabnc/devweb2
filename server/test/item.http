@@ -1,0 +1,38 @@
+GET http://127.0.0.1:3000/item HTTP/1.1
+
+###
+
+GET http://127.0.0.1:3000/item/1 HTTP/1.1
+
+###
+
+POST http://127.0.0.1:3000/item HTTP/1.1
+content-type: application/json
+
+{
+  "todo": "fazer as unhas UI!"
+}
+
+###
+
+PUT http://127.0.0.1:3000/item/1 HTTP/1.1
+content-type: application/json
+
+{
+  "todo": "ir para a escola!"
+}
+
+###
+
+PATCH http://127.0.0.1:3000/item/1 HTTP/1.1
+content-type: application/json
+
+{
+  "text": "ir para a escola de novo!",
+  "date": 123,
+  "not-permited-column": ""
+}
+
+###
+
+DELETE http://127.0.0.1:3000/item/2 HTTP/1.1
